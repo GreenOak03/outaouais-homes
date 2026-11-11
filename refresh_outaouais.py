@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
 """
-Full daily Centris & DuProprio scraper for Outaouais Home Finder.
-Crawls 3+ bedroom houses & condo townhouses up to $1M across all 11 Outaouais sectors,
-geocodes new listings via OpenStreetMap Nominatim, and logs price drops & new homes into snapshot.json.
+Full daily Centris & DuProprio scraper + sold-listing verifier for Outaouais Home Finder.
+1. Verifies every active listing URL in snapshot.json: if Centris or DuProprio redirects
+   away from the listing ID (or shows a Sold banner / 404), marks the listing as removed.
+   Also detects any price drops directly from the live listing page.
+2. Crawls Centris & DuProprio across all 11 Outaouais sectors for newly added 3+ bedroom
+   homes up to $1M and geocodes them via OpenStreetMap Nominatim.
 """
 import json, re, time, datetime, pathlib, urllib.request, urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 TODAY = datetime.date.today().isoformat()
 SNAP_PATH = pathlib.Path("snapshot.json")
 MAX_PRICE = 1000000
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept-Language": "en-CA,en;q=0.9,fr-CA;q=0.8"
+}
 
 SECTORS = [
     ("gatineau-hull", "Hull, Gatineau"),
@@ -31,7 +40,7 @@ def geocode(addr, town):
     url = f"https://nominatim.openstreetmap.org/search?q={q}&format=json&limit=1"
     req = urllib.request.Request(url, headers={"User-Agent": "OutaouaisHomeFinder/1.0 (github-actions)"})
     try:
-        time.sleep(1.05)  # Respect Nominatim 1 req/s rate limit
+        time.sleep(1.05)
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read().decode())
             if data:
@@ -46,8 +55,74 @@ def clean_int(val):
     digits = re.sub(r"[^\d]", "", str(val))
     return int(digits) if digits else ""
 
+def build_listing_url(row_str):
+    parts = row_str.split("|")
+    lid = parts[0]
+    slug = parts[2] if len(parts) > 2 else "gatineau-gatineau"
+    src = parts[22] if len(parts) > 22 and parts[22] else ("D" if lid.startswith("dp") else "C")
+    urlp = (parts[23] if len(parts) > 23 else "").strip()
+    if src == "D":
+        if urlp.startswith("http"):
+            return urlp
+        if urlp.startswith("/en/") or urlp.startswith("/fr/"):
+            return "https://duproprio.com" + urlp
+        clean_p = re.sub(r"^~?/?(?:en/outaouais/|fr/outaouais/)?", "", urlp)
+        return "https://duproprio.com/en/outaouais/" + clean_p
+    else:
+        if urlp.startswith("http"):
+            return urlp
+        if urlp.startswith("/"):
+            return "https://www.centris.ca" + urlp
+        return f"https://www.centris.ca/en/houses~for-sale~{slug}/{lid}"
+
+def check_single_listing(lid, row_str):
+    """Returns (lid, status, live_price) where status is 'active', 'gone', or 'unknown'."""
+    parts = row_str.split("|")
+    old_price = clean_int(parts[1]) or 0
+    src = parts[22] if len(parts) > 22 and parts[22] else ("D" if lid.startswith("dp") else "C")
+    url = build_listing_url(row_str)
+    num_id = lid[2:] if lid.startswith("dp") else lid
+
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=20, allow_redirects=True)
+        if resp.status_code == 404 or resp.status_code == 410:
+            return (lid, "gone", None)
+        if resp.status_code in (403, 429, 503):
+            return (lid, "unknown", None)
+
+        final_url = resp.url.lower()
+        html = resp.text
+
+        # Both Centris and DuProprio redirect sold/removed listings to the generic city/category page,
+        # stripping the numeric listing ID from the final URL.
+        if num_id.lower() not in final_url:
+            return (lid, "gone", None)
+
+        if src == "D":
+            if re.search(r"j['’]ai vendu|cette propri[eé]t[eé] est vendue|this property is sold|property sold", html, re.I):
+                return (lid, "gone", None)
+            soup = BeautifulSoup(html, "html.parser")
+            pr_el = soup.select_one(".listing-price__amount") or soup.select_one('meta[property="product:price:amount"]')
+            if pr_el:
+                raw_p = pr_el.get("content") if pr_el.has_attr("content") else pr_el.get_text()
+                lp = clean_int(raw_p)
+                if lp and 90000 <= lp <= 2000000:
+                    return (lid, "active", lp)
+        else:
+            if re.search(r"property is no longer available|propri[eé]t[eé] n['’]est plus disponible", html, re.I):
+                return (lid, "gone", None)
+            soup = BeautifulSoup(html, "html.parser")
+            pr_meta = soup.select_one('meta[itemprop="price"]')
+            if pr_meta and pr_meta.get("content"):
+                lp = clean_int(pr_meta["content"])
+                if lp and 90000 <= lp <= 2000000:
+                    return (lid, "active", lp)
+
+        return (lid, "active", old_price)
+    except Exception:
+        return (lid, "unknown", None)
+
 def make_row(lid, price, slug, addr, htype, style, beds, baths, area="", lot="", yr="", first_seen=TODAY, src="C", urlp=""):
-    # 24-field format: id|price|slug|addr|type|style|rooms|beds|bedsB|baths|powder|area|lot|yr|assess|tax|fee|energy|park|bits|move|firstSeen|src|url
     fields = [
         str(lid), str(price), slug, addr, htype, style,
         "", str(beds), "0", str(baths), "0",
@@ -63,12 +138,13 @@ def scrape_duproprio(page, slug):
         try:
             page.goto(url, timeout=30000, wait_until="domcontentloaded")
             page.wait_for_timeout(1200)
-            html = page.content()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = BeautifulSoup(page.content(), "html.parser")
             items = soup.select("li.search-results-listings-list__item")
             if not items:
                 break
             for item in items:
+                if re.search(r"sold|vendu", item.get_text(" ", strip=True), re.I):
+                    continue
                 link_el = item.select_one("a.search-results-listings-list__item-image-link")
                 if not link_el or not link_el.get("href"):
                     continue
@@ -154,30 +230,55 @@ def main():
             old_rows[parts[0]] = r
     coords = old.get("geo", {}).get("coords", {})
     updates = old.get("updates", [])
-    print(f"Loaded {len(old_rows)} existing listings. Starting headless Chromium crawl...")
+
+    already_removed = set()
+    for u in updates:
+        for rid in u.get("removed", []):
+            already_removed.add(str(rid))
+
+    active_to_check = {lid: r for lid, r in old_rows.items() if lid not in already_removed}
+    print(f"Phase 1: Checking {len(active_to_check)} active listing URLs for sold/off-market status & price drops...")
 
     fresh_rows = dict(old_rows)
-    added, price_changes = [], []
+    added, price_changes, newly_removed = [], [], []
+
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        futs = {pool.submit(check_single_listing, lid, r): lid for lid, r in active_to_check.items()}
+        for fut in as_completed(futs):
+            lid, status, live_price = fut.result()
+            if status == "gone":
+                newly_removed.append(lid)
+                already_removed.add(lid)
+                print(f"  [SOLD / REMOVED] {lid}")
+            elif status == "active" and live_price:
+                parts = fresh_rows[lid].split("|")
+                old_p = clean_int(parts[1]) or live_price
+                if old_p != live_price:
+                    price_changes.append([lid, old_p, live_price])
+                    parts[1] = str(live_price)
+                    fresh_rows[lid] = "|".join(parts)
+                    print(f"  [PRICE CHANGE] {lid}: {old_p} -> {live_price}")
+
+    print(f"Phase 1 complete: {len(newly_removed)} sold/removed, {len(price_changes)} price changes.")
+    print("Phase 2: Crawling Centris & DuProprio sectors for new listings...")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+        context = browser.new_context(user_agent=HEADERS["User-Agent"])
         page = context.new_page()
         for slug, town in SECTORS:
             print(f"Scanning {slug} ({town})...")
             found = {}
             found.update(scrape_duproprio(page, slug))
             found.update(scrape_centris(page, slug))
-            print(f"  Found {len(found)} qualifying 3+ bedroom listings in {slug}")
             for lid, (new_price, row_str, addr) in found.items():
                 if lid in fresh_rows:
                     parts = fresh_rows[lid].split("|")
                     old_price = clean_int(parts[1]) or new_price
-                    if old_price != new_price:
+                    if old_price != new_price and not any(pc[0] == lid for pc in price_changes):
                         price_changes.append([lid, old_price, new_price])
                         parts[1] = str(new_price)
                         fresh_rows[lid] = "|".join(parts)
-                        print(f"  Price change {lid} ({addr}): {old_price} -> {new_price}")
                 else:
                     fresh_rows[lid] = row_str
                     added.append(row_str)
@@ -185,18 +286,18 @@ def main():
                         ll = geocode(addr, town)
                         if ll:
                             coords[lid] = ll
-                    print(f"  New listing {lid}: {addr} ($" + str(new_price) + ")")
+                    print("  [NEW] " + str(lid) + ": " + str(addr) + " ($" + str(new_price) + ")")
         browser.close()
 
     old["asOf"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     old["homes"]["asOf"] = TODAY
     old["homes"]["rows"] = list(fresh_rows.values())
     old["geo"]["coords"] = coords
-    if added or price_changes:
-        updates.append({"date": TODAY, "added": added, "price": price_changes})
+    if added or price_changes or newly_removed:
+        updates.append({"date": TODAY, "added": added, "price": price_changes, "removed": newly_removed})
     old["updates"] = updates
     SNAP_PATH.write_text(json.dumps(old, ensure_ascii=False, indent=2), "utf-8")
-    print(f"Done! Saved snapshot.json ({len(fresh_rows)} total homes, +{len(added)} new, {len(price_changes)} price changes).")
+    print(f"Done! Saved snapshot.json ({len(fresh_rows) - len(already_removed)} active homes, -{len(newly_removed)} sold/removed, +{len(added)} new, {len(price_changes)} price changes).")
 
 if __name__ == "__main__":
     main()
