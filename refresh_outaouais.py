@@ -166,12 +166,16 @@ def scrape_duproprio(page, slug):
                     continue
                 m_baths = re.search(r"(\d+)\s*bathroom", text_blob, re.I)
                 baths = int(m_baths.group(1)) if m_baths else 1
-                m_area = re.search(r"([\d,]+)\s*ft", text_blob)
+                m_area = re.search(r"living\s*space[^\d]*([\d,]+)\s*ft", text_blob, re.I)
                 area = clean_int(m_area.group(1)) if m_area else ""
+                if area and area > 6000:
+                    area = ""
+                m_lot = re.search(r"lot[^\d]*([\d,]+)\s*ft", text_blob, re.I)
+                lot = clean_int(m_lot.group(1)) if m_lot else ""
                 style = "Bungalow, Detached" if "bungalow" in href.lower() else ("Two or more storey, Semi-detached" if "semi-detached" in href.lower() else "Two or more storey, Detached")
                 htype = "M" if "townhouse" in href.lower() else "H"
                 urlp = "~" + href.split("/outaouais/")[-1] if "/outaouais/" in href else href
-                found[lid] = (price, make_row(lid, price, slug, addr, htype, style, beds, baths, area=area, src="D", urlp=urlp), addr)
+                found[lid] = (price, make_row(lid, price, slug, addr, htype, style, beds, baths, area=area, lot=lot, src="D", urlp=urlp), addr)
         except Exception as e:
             print(f"  [DuProprio {slug} p{pnum}] {e}")
             break
