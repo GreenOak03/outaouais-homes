@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-12T00:18:38Z",
+  "asOf": "2026-11-12T01:04:49Z",
   "homes": {
     "rows": [
       "11839133|349900|gatineau-hull|55, Rue Saint-Henri|H|Two or more storey, Detached|11|6|0|2|0|1506|3103||337800|3114|||3|0|A30|2026-10-27|C|/en/houses~for-sale~gatineau-hull/11839133",
@@ -724,7 +724,67 @@
       "26685124|374800|la-peche|14, Chemin Labelle|H|Two or more storey, Detached||3|0|2|0||||||||2|0||2026-11-12|C|/en/houses~for-sale~la-peche/26685124",
       "28166879|648800|la-peche|10Z, Place Mark-Parker|H|Two or more storey, Detached||3|0|3|0||||||||2|0||2026-11-12|C|/en/condominium-houses~for-sale~la-peche/28166879",
       "27271512|649900|pontiac|166, Chemin des Bouleaux|H|Two or more storey, Detached||3|0|2|0||||||||2|0||2026-11-12|C|/en/houses~for-sale~pontiac/27271512",
-      "12519089|998000|pontiac|104, Chemin de l'Aventure|H|Two or more storey, Detached||3|0|3|0||||||||2|0||2026-11-12|C|/en/houses~for-sale~pontiac/12519089"
+      "12519089|998000|pontiac|104, Chemin de l'Aventure|H|Two or more storey, Detached||3|0|3|0||||||||2|0||2026-11-12|C|/en/houses~for-sale~pontiac/12519089",
+      "16998536|739800|gatineau-hull|30, Rue de la Constellation|H|Two or more storey, Detached||5|0|3|0|1650|4183|2000|213700||||2|65984||2026-11-12|C|/en/houses~for-sale~gatineau-hull/16998536",
+      "19888738|567900|gatineau-hull|6, Rue du Firmament|H|Two or more storey, Detached||3|0|2|0|1250|4165|2000|205100||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-hull/19888738",
+      "9632687|519900|gatineau-hull|27, Rue Charron|H|Two or more storey, Detached||3|0|2|0|1375|5185|1951|270900||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-hull/9632687",
+      "28856241|415000|gatineau-hull|67, Rue Moncion|H|Two or more storey, Detached||4|0|2|0|1148|5500|1958|282200||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-hull/28856241",
+      "17006085|739900|gatineau-hull|75, Rue du Val-Perché|H|Two or more storey, Detached||6|0|4|0|1898|8686|1983|297900||||2|65664||2026-11-12|C|/en/houses~for-sale~gatineau-hull/17006085",
+      "21840090|499900|gatineau-hull|35, Rue du Shamal|H|Two or more storey, Detached||3|0|3|0|1420|1939|2012|148700||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-hull/21840090",
+      "26553626|724900|gatineau-aylmer|90, Rue d'Anvers|H|Two or more storey, Detached||3|0|3|0|1796|9575|2019|289800||||2|65728||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/26553626",
+      "18843522|995000|gatineau-aylmer|32, Rue René-Thérien|H|Two or more storey, Detached||4|0|2|0|2445|10500|1977|310100||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/18843522",
+      "26077731|998500|gatineau-aylmer|59, Chemin Fraser|H|Two or more storey, Detached||3|0|2|0|2458|9283||513100||||2|131392||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/26077731",
+      "16221057|499900|gatineau-aylmer|16, Impasse du Canotage|H|Two or more storey, Detached||4|0|2|0|817|5000|1949|178800||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/16221057",
+      "13942719|524900|gatineau-aylmer|84, Rue Arthur-Quesnel|H|Two or more storey, Detached||3|0|1|0|942|3229|2006|159000||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/13942719",
+      "10011044|559800|gatineau-aylmer|65, Rue René-Thérien|H|Two or more storey, Detached||5|0|2|0|1237|10000|1974|320800||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/10011044",
+      "27911787|549900|gatineau-aylmer|68, Rue Gérald-Dubois|H|Two or more storey, Detached||3|0|2|0|1517|3391|1995|167000||||2|65600||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/27911787",
+      "9276919|444000|gatineau-aylmer|49, Rue Principale|H|Two or more storey, Detached||3|0|2|0|1673|3700|1940|154700||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/9276919",
+      "20736495|369500|gatineau-gatineau|214, Rue Jules-Bordet|H|Two or more storey, Detached||3|0|2|0|1200|1937|1993|86000||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/20736495",
+      "13612206|599800|gatineau-gatineau|173, Rue de Pélissier|H|Two or more storey, Detached||5|0|3|0|1507|5792|1991|180000||||2|65856||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/13612206",
+      "25523819|495000|gatineau-gatineau|188, Rue de Lausanne|H|Two or more storey, Detached||4|0|3|0|1368|3448|1988|154700||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/25523819",
+      "26874828|499900|gatineau-gatineau|57, Rue des Flandres|H|Two or more storey, Detached||4|0|2|0|1213|5998|1963|240000||||2|65856||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/26874828",
+      "18528211|474900|gatineau-gatineau|684, boulevard Labrosse|H|Two or more storey, Detached||3|0|2|0|1067|5969|1990|251100||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/18528211",
+      "11542162|434900|gatineau-gatineau|669, boulevard Lorrain|H|Two or more storey, Detached||4|0|2|0|1940|11625|1986|177800||||2|384||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/11542162",
+      "17541193|449900|gatineau-gatineau|48, Rue Saint-Josaphat|H|Two or more storey, Detached||4|0|3|0|1326|5000|1956|201300||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/17541193",
+      "27353545|499900|gatineau-gatineau|16, Rue Sanctuaire|H|Two or more storey, Detached||4|0|2|0|1424|3448|1988|185400||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/27353545",
+      "15303210|609900|gatineau-gatineau|803, Rue de la Littérature|H|Two or more storey, Detached||3|0|3|0|1496|2665|2021|124500||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/15303210",
+      "17334788|759900|gatineau-gatineau|445, Rue de Cannes|H|Two or more storey, Detached||4|0|4|0|1960|8000|1982|314800||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/17334788",
+      "12975233|424900|gatineau-masson-angers|104, Impasse Osias-Daoust|H|Two or more storey, Detached||4|0|2|0|1370|3401|2015|81500||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-masson-angers/12975233",
+      "18702716|345000|gatineau-masson-angers|617, Chemin du Fer-à-Cheval|H|Two or more storey, Detached||3|0|1|0||35020|1965|206000||||2|131072||2026-11-12|C|/en/houses~for-sale~gatineau-masson-angers/18702716",
+      "28050397|499900|gatineau-buckingham|160, Rue Ménard|H|Two or more storey, Detached||5|0|3|0|2325|8966|1977|160800||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/28050397",
+      "21266196|389000|gatineau-buckingham|687, Avenue de Buckingham|H|Two or more storey, Detached||3|0|2|0|1200|4916|1940|91300||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/21266196",
+      "28397264|319000|gatineau-buckingham|39, Rue Barbary|H|Two or more storey, Detached||3|0|1|0|1200|3000|1989|86600||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/28397264",
+      "20640743|499900|gatineau-buckingham|225, Rue Alexandre-Rodrigue|H|Two or more storey, Detached||4|0|3|0|1384|3099|2022|89500||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/20640743",
+      "21881091|687106|chelsea|328, Chemin Ladyfield|H|Two or more storey, Detached||3|0|3|0|1540|2100||||||2|64||2026-11-12|C|/en/houses~for-sale~chelsea/21881091",
+      "11579339|914900|chelsea|29, Chemin de Montpelier|H|Two or more storey, Detached||3|0|4|0|1681|3615|2018|157600||||2|64||2026-11-12|C|/en/houses~for-sale~chelsea/11579339",
+      "16440490|525000|cantley|73, Rue de Rena|H|Two or more storey, Detached||3|0|2|0|1579|48750|2010|87200||||2|131072||2026-11-12|C|/en/houses~for-sale~cantley/16440490",
+      "24751578|819900|cantley|76, Rue du Mont-Royal|H|Two or more storey, Detached||5|0|4|0|2362|50254|2009|96000||||2|64||2026-11-12|C|/en/houses~for-sale~cantley/24751578",
+      "24233444|949800|cantley|384, Chemin de la Perdrix|H|Two or more storey, Detached||3|0|3|0||118991|2013|329700||||2|131392||2026-11-12|C|/en/houses~for-sale~cantley/24233444",
+      "28327995|780000|cantley|32, Rue de Saint-Moritz|H|Two or more storey, Detached||5|0|3|0|3229|52160|2006|97600||||2|256||2026-11-12|C|/en/houses~for-sale~cantley/28327995",
+      "10104738|899999|cantley|829, Montée Saint-Amour|H|Two or more storey, Detached||5|0|5|0|3526|74219|2025|109500||||2|64||2026-11-12|C|/en/houses~for-sale~cantley/10104738",
+      "17443501|750000|cantley|8, Rue de Sarajevo|H|Two or more storey, Detached||3|0|2|0|2024|30429|2014|||||2|320||2026-11-12|C|/en/houses~for-sale~cantley/17443501",
+      "27847917|478277|val-des-monts|15B, Chemin Crouch|H|Two or more storey, Detached||3|0|2|0|1200|34088|2024|84200||||2|196672||2026-11-12|C|/en/houses~for-sale~val-des-monts/27847917",
+      "21678769|549900|val-des-monts|48, Chemin Lapointe|H|Two or more storey, Detached||3|0|2|0|1700|40646|2005|202200||||2|131392||2026-11-12|C|/en/cottages~for-sale~val-des-monts/21678769",
+      "13811704|314900|val-des-monts|55, Chemin du Pont|H|Two or more storey, Detached||3|0|1|0|1174|14302|1951|||||2|0||2026-11-12|C|/en/houses~for-sale~val-des-monts/13811704",
+      "21858538|749900|val-des-monts|6, Rue du Butor|H|Two or more storey, Detached||3|0|3|0|1636|61553|2015|121700||||2|320||2026-11-12|C|/en/houses~for-sale~val-des-monts/21858538",
+      "25358447|681396|val-des-monts|10, Chemin du Folklore|H|Two or more storey, Detached||4|0|3|0|1200|59872||86600||||2|65536||2026-11-12|C|/en/houses~for-sale~val-des-monts/25358447",
+      "23168516|515000|val-des-monts|12, Rue Joël|H|Two or more storey, Detached||3|0|2|0|1120|41030|2010|||||2|256||2026-11-12|C|/en/houses~for-sale~val-des-monts/23168516",
+      "11551624|949900|val-des-monts|34, Chemin de la Moisson|H|Two or more storey, Detached||4|0|4|0|3186|53919|2021|121000||||2|320||2026-11-12|C|/en/houses~for-sale~val-des-monts/11551624",
+      "28023341|715000|val-des-monts|773, Chemin Blackburn|H|Two or more storey, Detached||4|0|3|0|1591|31628|2024|||||2|65728||2026-11-12|C|/en/houses~for-sale~val-des-monts/28023341",
+      "26723397|799000|val-des-monts|22, Rue des Mélèzes|H|Two or more storey, Detached||3|0|5|0|2400|51885|2005|80800||||2|131392||2026-11-12|C|/en/houses~for-sale~val-des-monts/26723397",
+      "10093781|349900|l-ange-gardien-outaouais|3611, Route 309|H|Two or more storey, Detached||3|0|2|0|880|8242|1966|||||2|0||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/10093781",
+      "9856967|974900|l-ange-gardien-outaouais|116, Chemin du Vol-à-Voile|H|Two or more storey, Detached||3|0|3|0|2694|124895|2012|102300||||2|2496||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/9856967",
+      "11258061|657900|l-ange-gardien-outaouais|Chemin de l'Envolée|H|Two or more storey, Detached||3|0|2|0|1540|71538||129200||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/11258061",
+      "26883044|573900|l-ange-gardien-outaouais|97, Chemin des Fondeurs|H|Two or more storey, Detached||3|0|2|0|1677|53153|2026|659841||||2|0||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/26883044",
+      "16498784|799900|l-ange-gardien-outaouais|166, Chemin Jos-Montferrand|H|Two or more storey, Detached||4|0|3|0|1865|99540|2012|81200||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/16498784",
+      "10184184|724900|l-ange-gardien-outaouais|33, Chemin du Bocage|H|Two or more storey, Detached||3|0|2|0|1710|53474|2015|80000||||2|65984||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/10184184",
+      "25337887|600122|l-ange-gardien-outaouais|105, Chemin des Terrasses|H|Two or more storey, Detached||4|0|2|0|1794|73333||689990||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/25337887",
+      "27418252|539900|la-peche|16, Chemin Laurette|H|Two or more storey, Detached||3|0|2|0|1152|30149|2007|||||2|320||2026-11-12|C|/en/houses~for-sale~la-peche/27418252",
+      "18456845|524900|la-peche|31, Chemin Farrell|H|Two or more storey, Detached||5|0|1|0|1315|14994|1965|||||2|131392||2026-11-12|C|/en/houses~for-sale~la-peche/18456845",
+      "13974870|948800|la-peche|30, Chemin Thom|H|Two or more storey, Detached||3|0|3|0|3507|42334|2016|93300||||2|320||2026-11-12|C|/en/houses~for-sale~la-peche/13974870",
+      "22087424|639800|la-peche|86, Chemin Pine|H|Two or more storey, Detached||3|0|3|0|2038|22000|2022|||||2|64||2026-11-12|C|/en/houses~for-sale~la-peche/22087424",
+      "22438204|574900|pontiac|276, Chemin Davis|H|Two or more storey, Detached||3|0|2|0|1453|43570|1984|129200||||2|192||2026-11-12|C|/en/houses~for-sale~pontiac/22438204",
+      "18456935|839900|pontiac|181, Chemin Cedarvale|H|Two or more storey, Detached||5|0|3|0|3092|23332|1978|226900||||2|131520||2026-11-12|C|/en/houses~for-sale~pontiac/18456935"
     ],
     "asOf": "2026-11-12"
   },
@@ -3533,6 +3593,242 @@
       "12519089": [
         45.53092,
         -75.99859
+      ],
+      "16998536": [
+        45.44093,
+        -75.78401
+      ],
+      "19888738": [
+        45.4394,
+        -75.7843
+      ],
+      "9632687": [
+        45.45485,
+        -75.745
+      ],
+      "28856241": [
+        45.4217,
+        -75.75246
+      ],
+      "17006085": [
+        45.47378,
+        -75.76211
+      ],
+      "21840090": [
+        45.4471,
+        -75.78808
+      ],
+      "26553626": [
+        45.4282,
+        -75.81553
+      ],
+      "18843522": [
+        45.38544,
+        -75.8428
+      ],
+      "26077731": [
+        45.38061,
+        -75.8264
+      ],
+      "16221057": [
+        45.40209,
+        -75.86358
+      ],
+      "13942719": [
+        45.39298,
+        -75.8146
+      ],
+      "10011044": [
+        45.38806,
+        -75.84373
+      ],
+      "27911787": [
+        45.38865,
+        -75.81402
+      ],
+      "9276919": [
+        45.39481,
+        -75.84978
+      ],
+      "20736495": [
+        45.49406,
+        -75.69417
+      ],
+      "13612206": [
+        45.49804,
+        -75.57353
+      ],
+      "25523819": [
+        45.47791,
+        -75.68379
+      ],
+      "26874828": [
+        45.47395,
+        -75.72096
+      ],
+      "18528211": [
+        45.50355,
+        -75.64262
+      ],
+      "11542162": [
+        45.51713,
+        -75.61327
+      ],
+      "17541193": [
+        45.47126,
+        -75.69107
+      ],
+      "27353545": [
+        45.49825,
+        -75.68258
+      ],
+      "15303210": [
+        45.48809,
+        -75.6857
+      ],
+      "17334788": [
+        45.49045,
+        -75.73601
+      ],
+      "12975233": [
+        45.54723,
+        -75.40591
+      ],
+      "18702716": [
+        45.53645,
+        -75.36075
+      ],
+      "28050397": [
+        45.57222,
+        -75.42708
+      ],
+      "21266196": [
+        45.58104,
+        -75.41263
+      ],
+      "28397264": [
+        45.58805,
+        -75.39454
+      ],
+      "20640743": [
+        45.58309,
+        -75.40216
+      ],
+      "21881091": [
+        45.49932,
+        -75.80352
+      ],
+      "11579339": [
+        45.50028,
+        -75.80175
+      ],
+      "16440490": [
+        45.60274,
+        -75.85572
+      ],
+      "24751578": [
+        45.60064,
+        -75.82978
+      ],
+      "24233444": [
+        45.59436,
+        -75.68931
+      ],
+      "28327995": [
+        45.6046,
+        -75.84403
+      ],
+      "10104738": [
+        45.56468,
+        -75.71432
+      ],
+      "17443501": [
+        45.59637,
+        -75.84319
+      ],
+      "27847917": [
+        45.65909,
+        -75.65423
+      ],
+      "21678769": [
+        45.73639,
+        -75.76027
+      ],
+      "13811704": [
+        45.78589,
+        -75.70252
+      ],
+      "21858538": [
+        45.6113,
+        -75.63989
+      ],
+      "23168516": [
+        45.59603,
+        -75.65311
+      ],
+      "11551624": [
+        45.59425,
+        -75.63612
+      ],
+      "28023341": [
+        45.6743,
+        -75.5722
+      ],
+      "26723397": [
+        45.59301,
+        -75.62116
+      ],
+      "10093781": [
+        45.66553,
+        -75.45693
+      ],
+      "9856967": [
+        45.6302,
+        -75.39274
+      ],
+      "11258061": [
+        45.62997,
+        -75.39004
+      ],
+      "26883044": [
+        45.61497,
+        -75.41248
+      ],
+      "16498784": [
+        45.60648,
+        -75.3903
+      ],
+      "10184184": [
+        45.59601,
+        -75.39925
+      ],
+      "25337887": [
+        45.57475,
+        -75.52616
+      ],
+      "27418252": [
+        45.6405,
+        -76.04745
+      ],
+      "18456845": [
+        45.75004,
+        -75.91173
+      ],
+      "13974870": [
+        45.65098,
+        -75.91214
+      ],
+      "22087424": [
+        45.65513,
+        -75.85813
+      ],
+      "22438204": [
+        45.4457,
+        -75.90837
+      ],
+      "18456935": [
+        45.42733,
+        -75.91042
       ]
     }
   },
@@ -4449,6 +4745,73 @@
         "12690825",
         "19149768"
       ]
+    },
+    {
+      "date": "2026-11-12",
+      "added": [
+        "16998536|739800|gatineau-hull|30, Rue de la Constellation|H|Two or more storey, Detached||5|0|3|0|1650|4183|2000|213700||||2|65984||2026-11-12|C|/en/houses~for-sale~gatineau-hull/16998536",
+        "19888738|567900|gatineau-hull|6, Rue du Firmament|H|Two or more storey, Detached||3|0|2|0|1250|4165|2000|205100||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-hull/19888738",
+        "9632687|519900|gatineau-hull|27, Rue Charron|H|Two or more storey, Detached||3|0|2|0|1375|5185|1951|270900||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-hull/9632687",
+        "28856241|415000|gatineau-hull|67, Rue Moncion|H|Two or more storey, Detached||4|0|2|0|1148|5500|1958|282200||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-hull/28856241",
+        "17006085|739900|gatineau-hull|75, Rue du Val-Perché|H|Two or more storey, Detached||6|0|4|0|1898|8686|1983|297900||||2|65664||2026-11-12|C|/en/houses~for-sale~gatineau-hull/17006085",
+        "21840090|499900|gatineau-hull|35, Rue du Shamal|H|Two or more storey, Detached||3|0|3|0|1420|1939|2012|148700||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-hull/21840090",
+        "26553626|724900|gatineau-aylmer|90, Rue d'Anvers|H|Two or more storey, Detached||3|0|3|0|1796|9575|2019|289800||||2|65728||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/26553626",
+        "18843522|995000|gatineau-aylmer|32, Rue René-Thérien|H|Two or more storey, Detached||4|0|2|0|2445|10500|1977|310100||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/18843522",
+        "26077731|998500|gatineau-aylmer|59, Chemin Fraser|H|Two or more storey, Detached||3|0|2|0|2458|9283||513100||||2|131392||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/26077731",
+        "16221057|499900|gatineau-aylmer|16, Impasse du Canotage|H|Two or more storey, Detached||4|0|2|0|817|5000|1949|178800||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/16221057",
+        "13942719|524900|gatineau-aylmer|84, Rue Arthur-Quesnel|H|Two or more storey, Detached||3|0|1|0|942|3229|2006|159000||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/13942719",
+        "10011044|559800|gatineau-aylmer|65, Rue René-Thérien|H|Two or more storey, Detached||5|0|2|0|1237|10000|1974|320800||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/10011044",
+        "27911787|549900|gatineau-aylmer|68, Rue Gérald-Dubois|H|Two or more storey, Detached||3|0|2|0|1517|3391|1995|167000||||2|65600||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/27911787",
+        "9276919|444000|gatineau-aylmer|49, Rue Principale|H|Two or more storey, Detached||3|0|2|0|1673|3700|1940|154700||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-aylmer/9276919",
+        "20736495|369500|gatineau-gatineau|214, Rue Jules-Bordet|H|Two or more storey, Detached||3|0|2|0|1200|1937|1993|86000||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/20736495",
+        "13612206|599800|gatineau-gatineau|173, Rue de Pélissier|H|Two or more storey, Detached||5|0|3|0|1507|5792|1991|180000||||2|65856||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/13612206",
+        "25523819|495000|gatineau-gatineau|188, Rue de Lausanne|H|Two or more storey, Detached||4|0|3|0|1368|3448|1988|154700||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/25523819",
+        "26874828|499900|gatineau-gatineau|57, Rue des Flandres|H|Two or more storey, Detached||4|0|2|0|1213|5998|1963|240000||||2|65856||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/26874828",
+        "18528211|474900|gatineau-gatineau|684, boulevard Labrosse|H|Two or more storey, Detached||3|0|2|0|1067|5969|1990|251100||||2|0||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/18528211",
+        "11542162|434900|gatineau-gatineau|669, boulevard Lorrain|H|Two or more storey, Detached||4|0|2|0|1940|11625|1986|177800||||2|384||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/11542162",
+        "17541193|449900|gatineau-gatineau|48, Rue Saint-Josaphat|H|Two or more storey, Detached||4|0|3|0|1326|5000|1956|201300||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/17541193",
+        "27353545|499900|gatineau-gatineau|16, Rue Sanctuaire|H|Two or more storey, Detached||4|0|2|0|1424|3448|1988|185400||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/27353545",
+        "15303210|609900|gatineau-gatineau|803, Rue de la Littérature|H|Two or more storey, Detached||3|0|3|0|1496|2665|2021|124500||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/15303210",
+        "17334788|759900|gatineau-gatineau|445, Rue de Cannes|H|Two or more storey, Detached||4|0|4|0|1960|8000|1982|314800||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-gatineau/17334788",
+        "12975233|424900|gatineau-masson-angers|104, Impasse Osias-Daoust|H|Two or more storey, Detached||4|0|2|0|1370|3401|2015|81500||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-masson-angers/12975233",
+        "18702716|345000|gatineau-masson-angers|617, Chemin du Fer-à-Cheval|H|Two or more storey, Detached||3|0|1|0||35020|1965|206000||||2|131072||2026-11-12|C|/en/houses~for-sale~gatineau-masson-angers/18702716",
+        "28050397|499900|gatineau-buckingham|160, Rue Ménard|H|Two or more storey, Detached||5|0|3|0|2325|8966|1977|160800||||2|320||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/28050397",
+        "21266196|389000|gatineau-buckingham|687, Avenue de Buckingham|H|Two or more storey, Detached||3|0|2|0|1200|4916|1940|91300||||2|64||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/21266196",
+        "28397264|319000|gatineau-buckingham|39, Rue Barbary|H|Two or more storey, Detached||3|0|1|0|1200|3000|1989|86600||||2|256||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/28397264",
+        "20640743|499900|gatineau-buckingham|225, Rue Alexandre-Rodrigue|H|Two or more storey, Detached||4|0|3|0|1384|3099|2022|89500||||2|65536||2026-11-12|C|/en/houses~for-sale~gatineau-buckingham/20640743",
+        "21881091|687106|chelsea|328, Chemin Ladyfield|H|Two or more storey, Detached||3|0|3|0|1540|2100||||||2|64||2026-11-12|C|/en/houses~for-sale~chelsea/21881091",
+        "11579339|914900|chelsea|29, Chemin de Montpelier|H|Two or more storey, Detached||3|0|4|0|1681|3615|2018|157600||||2|64||2026-11-12|C|/en/houses~for-sale~chelsea/11579339",
+        "16440490|525000|cantley|73, Rue de Rena|H|Two or more storey, Detached||3|0|2|0|1579|48750|2010|87200||||2|131072||2026-11-12|C|/en/houses~for-sale~cantley/16440490",
+        "24751578|819900|cantley|76, Rue du Mont-Royal|H|Two or more storey, Detached||5|0|4|0|2362|50254|2009|96000||||2|64||2026-11-12|C|/en/houses~for-sale~cantley/24751578",
+        "24233444|949800|cantley|384, Chemin de la Perdrix|H|Two or more storey, Detached||3|0|3|0||118991|2013|329700||||2|131392||2026-11-12|C|/en/houses~for-sale~cantley/24233444",
+        "28327995|780000|cantley|32, Rue de Saint-Moritz|H|Two or more storey, Detached||5|0|3|0|3229|52160|2006|97600||||2|256||2026-11-12|C|/en/houses~for-sale~cantley/28327995",
+        "10104738|899999|cantley|829, Montée Saint-Amour|H|Two or more storey, Detached||5|0|5|0|3526|74219|2025|109500||||2|64||2026-11-12|C|/en/houses~for-sale~cantley/10104738",
+        "17443501|750000|cantley|8, Rue de Sarajevo|H|Two or more storey, Detached||3|0|2|0|2024|30429|2014|||||2|320||2026-11-12|C|/en/houses~for-sale~cantley/17443501",
+        "27847917|478277|val-des-monts|15B, Chemin Crouch|H|Two or more storey, Detached||3|0|2|0|1200|34088|2024|84200||||2|196672||2026-11-12|C|/en/houses~for-sale~val-des-monts/27847917",
+        "21678769|549900|val-des-monts|48, Chemin Lapointe|H|Two or more storey, Detached||3|0|2|0|1700|40646|2005|202200||||2|131392||2026-11-12|C|/en/cottages~for-sale~val-des-monts/21678769",
+        "13811704|314900|val-des-monts|55, Chemin du Pont|H|Two or more storey, Detached||3|0|1|0|1174|14302|1951|||||2|0||2026-11-12|C|/en/houses~for-sale~val-des-monts/13811704",
+        "21858538|749900|val-des-monts|6, Rue du Butor|H|Two or more storey, Detached||3|0|3|0|1636|61553|2015|121700||||2|320||2026-11-12|C|/en/houses~for-sale~val-des-monts/21858538",
+        "25358447|681396|val-des-monts|10, Chemin du Folklore|H|Two or more storey, Detached||4|0|3|0|1200|59872||86600||||2|65536||2026-11-12|C|/en/houses~for-sale~val-des-monts/25358447",
+        "23168516|515000|val-des-monts|12, Rue Joël|H|Two or more storey, Detached||3|0|2|0|1120|41030|2010|||||2|256||2026-11-12|C|/en/houses~for-sale~val-des-monts/23168516",
+        "11551624|949900|val-des-monts|34, Chemin de la Moisson|H|Two or more storey, Detached||4|0|4|0|3186|53919|2021|121000||||2|320||2026-11-12|C|/en/houses~for-sale~val-des-monts/11551624",
+        "28023341|715000|val-des-monts|773, Chemin Blackburn|H|Two or more storey, Detached||4|0|3|0|1591|31628|2024|||||2|65728||2026-11-12|C|/en/houses~for-sale~val-des-monts/28023341",
+        "26723397|799000|val-des-monts|22, Rue des Mélèzes|H|Two or more storey, Detached||3|0|5|0|2400|51885|2005|80800||||2|131392||2026-11-12|C|/en/houses~for-sale~val-des-monts/26723397",
+        "10093781|349900|l-ange-gardien-outaouais|3611, Route 309|H|Two or more storey, Detached||3|0|2|0|880|8242|1966|||||2|0||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/10093781",
+        "9856967|974900|l-ange-gardien-outaouais|116, Chemin du Vol-à-Voile|H|Two or more storey, Detached||3|0|3|0|2694|124895|2012|102300||||2|2496||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/9856967",
+        "11258061|657900|l-ange-gardien-outaouais|Chemin de l'Envolée|H|Two or more storey, Detached||3|0|2|0|1540|71538||129200||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/11258061",
+        "26883044|573900|l-ange-gardien-outaouais|97, Chemin des Fondeurs|H|Two or more storey, Detached||3|0|2|0|1677|53153|2026|659841||||2|0||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/26883044",
+        "16498784|799900|l-ange-gardien-outaouais|166, Chemin Jos-Montferrand|H|Two or more storey, Detached||4|0|3|0|1865|99540|2012|81200||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/16498784",
+        "10184184|724900|l-ange-gardien-outaouais|33, Chemin du Bocage|H|Two or more storey, Detached||3|0|2|0|1710|53474|2015|80000||||2|65984||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/10184184",
+        "25337887|600122|l-ange-gardien-outaouais|105, Chemin des Terrasses|H|Two or more storey, Detached||4|0|2|0|1794|73333||689990||||2|64||2026-11-12|C|/en/houses~for-sale~l-ange-gardien-outaouais/25337887",
+        "27418252|539900|la-peche|16, Chemin Laurette|H|Two or more storey, Detached||3|0|2|0|1152|30149|2007|||||2|320||2026-11-12|C|/en/houses~for-sale~la-peche/27418252",
+        "18456845|524900|la-peche|31, Chemin Farrell|H|Two or more storey, Detached||5|0|1|0|1315|14994|1965|||||2|131392||2026-11-12|C|/en/houses~for-sale~la-peche/18456845",
+        "13974870|948800|la-peche|30, Chemin Thom|H|Two or more storey, Detached||3|0|3|0|3507|42334|2016|93300||||2|320||2026-11-12|C|/en/houses~for-sale~la-peche/13974870",
+        "22087424|639800|la-peche|86, Chemin Pine|H|Two or more storey, Detached||3|0|3|0|2038|22000|2022|||||2|64||2026-11-12|C|/en/houses~for-sale~la-peche/22087424",
+        "22438204|574900|pontiac|276, Chemin Davis|H|Two or more storey, Detached||3|0|2|0|1453|43570|1984|129200||||2|192||2026-11-12|C|/en/houses~for-sale~pontiac/22438204",
+        "18456935|839900|pontiac|181, Chemin Cedarvale|H|Two or more storey, Detached||5|0|3|0|3092|23332|1978|226900||||2|131520||2026-11-12|C|/en/houses~for-sale~pontiac/18456935"
+      ],
+      "price": [],
+      "removed": []
     }
   ],
   "marks": {}
