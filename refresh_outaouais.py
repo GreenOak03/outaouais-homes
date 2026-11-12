@@ -131,6 +131,70 @@ def make_row(lid, price, slug, addr, htype, style, beds, baths, area="", lot="",
     ]
     return "|".join(fields)
 
+def enrich_new_listing(row_str):
+    """Visits the detail page of a newly discovered Centris or DuProprio listing to extract
+    exact year built, municipal assessment, annual taxes, living area, lot size, and feature bits."""
+    parts = row_str.split("|")
+    url = build_listing_url(row_str)
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=20)
+        if resp.status_code != 200:
+            return row_str
+        html = resp.text
+        text = BeautifulSoup(html, "html.parser").get_text(" ", strip=True)
+
+        # Year built
+        if not parts[13]:
+            m_yr = re.search(r"(?:Year built|Ann[eé]e de construction)[^\d]*(19[2-9]\d|20[0-2]\d)", text, re.I)
+            if m_yr:
+                parts[13] = m_yr.group(1)
+
+        # Living area (sq ft)
+        if not parts[11]:
+            m_area = re.search(r"(?:Living area|Living space|Aire habitable|Superficie habitable)[^\d]*([\d,]+)\s*(?:sqft|ft|pi)", text, re.I)
+            if m_area:
+                a_val = clean_int(m_area.group(1))
+                if a_val and 450 <= a_val <= 6000:
+                    parts[11] = str(a_val)
+
+        # Lot size (sq ft)
+        if not parts[12]:
+            m_lot = re.search(r"(?:Lot area|Lot dimensions|Superficie du terrain|Dimensions du terrain)[^\d]*([\d,]+)\s*(?:sqft|ft|pi)", text, re.I)
+            if m_lot:
+                l_val = clean_int(m_lot.group(1))
+                if l_val and l_val >= 800:
+                    parts[12] = str(l_val)
+
+        # Municipal assessment
+        if not parts[14]:
+            m_ass = re.search(r"(?:Municipal assessment|Évaluation municipale)[^$]*\$([\d,]+)", text, re.I)
+            if m_ass:
+                ass_val = clean_int(m_ass.group(1))
+                if ass_val and ass_val >= 80000:
+                    parts[14] = str(ass_val)
+
+        # Annual municipal + school taxes
+        if not parts[15]:
+            m_mun = re.search(r"Municipal\s*\$([\d,]+)", text, re.I)
+            m_sch = re.search(r"School\s*\$([\d,]+)", text, re.I)
+            if m_mun:
+                t_val = (clean_int(m_mun.group(1)) or 0) + (clean_int(m_sch.group(1)) if m_sch else 0)
+                if 500 <= t_val <= 25000:
+                    parts[15] = str(t_val)
+
+        # Feature bitmask (64=garage, 128=pool, 256=fireplace, 2048=heat pump/central AC, 65536=finished basement, 131072=waterfront)
+        bits = int(parts[19] or 0)
+        if re.search(r"\bgarage\b", text, re.I): bits |= 64
+        if re.search(r"\b(?:pool|piscine)\b", text, re.I): bits |= 128
+        if re.search(r"\b(?:fireplace|foyer|wood stove|po[eê]le)\b", text, re.I): bits |= 256
+        if re.search(r"\b(?:heat pump|thermopompe|central air|climatisation centrale)\b", text, re.I): bits |= 2048
+        if re.search(r"\b(?:finished basement|totally finished|sous-sol aménagé|entièrement aménagé)\b", text, re.I): bits |= 65536
+        if re.search(r"\b(?:waterfront|bord de l'eau|navigable)\b", text, re.I): bits |= 131072
+        parts[19] = str(bits)
+    except Exception:
+        pass
+    return "|".join(parts)
+
 def scrape_duproprio(page, slug):
     found = {}
     for pnum in range(1, 8):
@@ -284,6 +348,7 @@ def main():
                         parts[1] = str(new_price)
                         fresh_rows[lid] = "|".join(parts)
                 else:
+                    row_str = enrich_new_listing(row_str)
                     fresh_rows[lid] = row_str
                     added.append(row_str)
                     if lid not in coords:
