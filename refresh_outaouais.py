@@ -365,6 +365,37 @@ def main():
     if added or price_changes or newly_removed:
         updates.append({"date": TODAY, "added": added, "price": price_changes, "removed": newly_removed})
     old["updates"] = updates
+
+    # Append today's regional market summary (median, mean, $/sq ft, active count) to market_history
+    active_prices, active_ppsfs = [], []
+    for lid, r_str in fresh_rows.items():
+        if lid in already_removed:
+            continue
+        p_arr = r_str.split("|")
+        pr = clean_int(p_arr[1])
+        ar = clean_int(p_arr[11]) if len(p_arr) > 11 else ""
+        if pr:
+            active_prices.append(pr)
+            if ar and 450 <= ar <= 6000:
+                active_ppsfs.append(round(pr / ar))
+    active_prices.sort()
+    active_ppsfs.sort()
+    med_p = active_prices[len(active_prices) // 2] if active_prices else 0
+    mean_p = round(sum(active_prices) / len(active_prices)) if active_prices else 0
+    med_ppsf = active_ppsfs[len(active_ppsfs) // 2] if active_ppsfs else 0
+    m_hist = [h for h in old.get("market_history", []) if h.get("date") != TODAY]
+    m_hist.append({
+        "date": TODAY,
+        "active": len(active_prices),
+        "median": med_p,
+        "mean": mean_p,
+        "ppsf": med_ppsf,
+        "newCnt": len(added),
+        "dropCnt": len(price_changes),
+        "soldCnt": len(newly_removed)
+    })
+    old["market_history"] = m_hist
+
     SNAP_PATH.write_text(json.dumps(old, ensure_ascii=False, indent=2), "utf-8")
     print(f"Done! Saved snapshot.json ({len(fresh_rows) - len(already_removed)} active homes, -{len(newly_removed)} sold/removed, +{len(added)} new, {len(price_changes)} price changes).")
 
