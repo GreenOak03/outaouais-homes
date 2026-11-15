@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-14T18:45:02Z",
+  "asOf": "2026-11-15T11:44:48Z",
   "homes": {
     "rows": [
       "11839133|349900|gatineau-hull|55, Rue Saint-Henri|H|Two or more storey, Detached|11|6|0|2|0|1506|3103||337800|3114|||3|0|A30|2026-10-27|C|/en/houses~for-sale~gatineau-hull/11839133",
@@ -841,7 +841,7 @@
       "14853780|560000|gatineau-hull|59, Rue de la Comète|H|Two or more storey, Detached||3|0|3|0|1300|5035|1999|242100||||2|65536||2026-11-13|C|/en/houses~for-sale~gatineau-hull/14853780",
       "18690358|524999|gatineau-hull|46, Rue Saint-Onge|H|Two or more storey, Detached||5|0|2|0|1099|6048|1957|248900||||2|65536||2026-11-13|C|/en/houses~for-sale~gatineau-hull/18690358",
       "16383568|889900|gatineau-hull|7, Rue du Havre|H|Two or more storey, Detached||4|0|4|0|2154|5349|2002|278500||||2|196928||2026-11-13|C|/en/houses~for-sale~gatineau-hull/16383568",
-      "9999828|554000|gatineau-aylmer|10, Rue de l'Empire|H|Two or more storey, Detached||3|0|3|0|1504|3707|2016|140800||||2|0||2026-11-13|C|/en/houses~for-sale~gatineau-aylmer/9999828",
+      "9999828|549900|gatineau-aylmer|10, Rue de l'Empire|H|Two or more storey, Detached||3|0|3|0|1504|3707|2016|140800||||2|0||2026-11-13|C|/en/houses~for-sale~gatineau-aylmer/9999828",
       "12049401|529900|gatineau-aylmer|3, Rue Arthur-Croteau|H|Two or more storey, Detached||3|0|3|0|1450|3247|1993|152200||||2|65984||2026-11-13|C|/en/houses~for-sale~gatineau-aylmer/12049401",
       "11083329|974800|gatineau-aylmer|36, Rue de Brouage|H|Two or more storey, Detached||5|0|3|0|2591|20116|1986|186900||||2|448||2026-11-13|C|/en/houses~for-sale~gatineau-aylmer/11083329",
       "16877616|688000|gatineau-aylmer|611, Avenue des Tilleuls|H|Two or more storey, Detached||5|0|2|0|1200|5000|2009|194200||||2|64||2026-11-13|C|/en/houses~for-sale~gatineau-aylmer/16877616",
@@ -934,9 +934,45 @@
       "10268854|828000|la-peche|36, Chemin Oak|H|Two or more storey, Detached||3|0|3|0|2647|19345|2014|||||2|256||2026-11-14|C|/en/houses~for-sale~la-peche/10268854",
       "11912558|749800|la-peche|33, Chemin Gilbert|H|Two or more storey, Detached||3|0|2|0|1561|55442|2024|||||2|2112||2026-11-14|C|/en/houses~for-sale~la-peche/11912558",
       "22670033|589900|pontiac|62, Avenue des Quatre-Saisons|H|Two or more storey, Detached||5|0|2|0|1330|57166|1975|125000||||2|196928||2026-11-14|C|/en/houses~for-sale~pontiac/22670033",
-      "20173316|199900|pontiac|1107, Rue de Clarendon|H|Two or more storey, Detached||3|0|1|0|1566|8712||||||2|0||2026-11-14|C|/en/houses~for-sale~pontiac/20173316"
+      "20173316|199900|pontiac|1107, Rue de Clarendon|H|Two or more storey, Detached||3|0|1|0|1566|8712||||||2|0||2026-11-14|C|/en/houses~for-sale~pontiac/20173316",
+      "15313547|679000|gatineau-hull|27, Rue Bernier|H|Two or more storey, Detached||4|0|2|0|1264|6175|1972|251200||||2|65792||2026-11-15|C|/en/houses~for-sale~gatineau-hull/15313547",
+      "12279680|617900|gatineau-hull|262, boulevard de la Cité-des-Jeunes|H|Two or more storey, Detached||3|0|3|0|1466|7860|1969|283600||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-hull/12279680",
+      "22400058|999900|gatineau-hull|18, Rue du Borée|H|Two or more storey, Detached||6|0|4|0|2530|6329|2008|254300||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-hull/22400058",
+      "16054663|689900|gatineau-hull|344, boulevard Riel|H|Two or more storey, Detached||5|0|3|0|1700|6000|1968|248000||||2|67904||2026-11-15|C|/en/houses~for-sale~gatineau-hull/16054663",
+      "20517107|559900|gatineau-aylmer|117, Rue du Zodiaque|H|Two or more storey, Detached||3|0|2|0|1446|3229|2007|159000||||2|65600||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/20517107",
+      "28539011|374900|gatineau-aylmer|185, Rue Elizabeth|H|Two or more storey, Detached||3|0|2|0|1232||1974|||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/28539011",
+      "11919170|499900|gatineau-aylmer|54, Rue des Hurons|H|Two or more storey, Detached||3|0|2|0|1320|5541|2004|231900||||2|65664||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/11919170",
+      "26615083|869900|gatineau-aylmer|313, Chemin Eardley|H|Two or more storey, Detached||4|0|3|0|2175|43209|1971|220200||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/26615083",
+      "16769995|875000|gatineau-aylmer|53, Rue Atholl-Doune|H|Two or more storey, Detached||5|0|3|0|2639|44471|1967|301300||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/16769995",
+      "15391720|590000|gatineau-aylmer|77, Rue de Dublin|H|Two or more storey, Detached||3|0|3|0|1462|4908|2016|227700||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/15391720",
+      "10724156|740000|gatineau-gatineau|27, Rue Honoré|H|Two or more storey, Detached||5|0|2|0|1706|8909|1994|194500||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/10724156",
+      "13189645|509800|gatineau-gatineau|197, Rue Marcelle-Ferron|H|Two or more storey, Detached||3|0|2|0|1460|4874|2016|223300||||2|65792||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13189645",
+      "13563769|774500|gatineau-gatineau|159, Rue de Melbourne|H|Two or more storey, Detached||4|0|4|0|2350|5712|2005|225700||||2|65664||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13563769",
+      "19069154|399900|gatineau-gatineau|255, Rue du Vieux-Port|H|Two or more storey, Detached||3|0|2|0|1348|5516|1997|135200||||2|256||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/19069154",
+      "13393738|349800|gatineau-gatineau|52, Rue de Drapeau|H|Two or more storey, Detached||3|0|2|0|627|3000|1972|119300||||2|0||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13393738",
+      "26991451|419900|gatineau-gatineau|319, Rue Gauthier|H|Two or more storey, Detached||4|0|2|0|1431|4945|1950|192000||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/26991451",
+      "20606980|549900|gatineau-gatineau|143, Rue Le Loutre|H|Two or more storey, Detached||4|0|3|0|1488|5570|1990|154400||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/20606980",
+      "24518553|499900|gatineau-gatineau|262, Rue Saint-James|H|Two or more storey, Detached||3|0|2|0|1403|7921|1959|218800||||2|128||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/24518553",
+      "25868666|485000|gatineau-gatineau|26, Rue de la Bourgade|H|Two or more storey, Detached||4|0|2|0|1000|3904|2011|132400||||2|2048||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/25868666",
+      "19773661|462555|gatineau-masson-angers|123Z, Rue du Débusquage|H|Two or more storey, Detached||5|0|3|0|1502|2809||531822||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-masson-angers/19773661",
+      "17280414|465231|gatineau-masson-angers|86, Rue Alfred-Bélisle|H|Two or more storey, Detached||3|0|3|0|1478|2745||534900||||2|64||2026-11-15|C|/en/houses~for-sale~gatineau-masson-angers/17280414",
+      "16449793|809000|chelsea|38, Chemin Deschênes|H|Two or more storey, Detached||5|0|4|0|3085|45662|1991|240500||||2|320||2026-11-15|C|/en/houses~for-sale~chelsea/16449793",
+      "28994616|899800|chelsea|5, Chemin Pawley|H|Two or more storey, Detached||4|0|4|0|3182|42468|1988|199000||||2|256||2026-11-15|C|/en/houses~for-sale~chelsea/28994616",
+      "22501653|599900|cantley|817, Montée Saint-Amour|H|Two or more storey, Detached||4|0|3|0||76359|1990|156500||||2|320||2026-11-15|C|/en/houses~for-sale~cantley/22501653",
+      "21577528|729900|cantley|36, Place du Neufbourg|H|Two or more storey, Detached||5|0|2|0|||1983|144900||||2|0||2026-11-15|C|/en/houses~for-sale~cantley/21577528",
+      "9669861|999900|cantley|17, Rue du Ruisseau|H|Two or more storey, Detached||3|0|3|0|1954|88899|2020|373700||||2|131328||2026-11-15|C|/en/houses~for-sale~cantley/9669861",
+      "14769321|684900|cantley|21, Rue du Renard|H|Two or more storey, Detached||3|0|2|0|1464|62864|2007|177600||||2|320||2026-11-15|C|/en/houses~for-sale~cantley/14769321",
+      "12375658|824888|val-des-monts|53, Rue de l'Allée|H|Two or more storey, Detached||4|0|3|0|1798|45705|2016|80100||||2|320||2026-11-15|C|/en/houses~for-sale~val-des-monts/12375658",
+      "10683469|709900|val-des-monts|57, Rue du Faubourg|H|Two or more storey, Detached||5|0|4|0|2200|40811|1998|85700||||2|65856||2026-11-15|C|/en/houses~for-sale~val-des-monts/10683469",
+      "21656990|649000|val-des-monts|53, Chemin de la Montagne|H|Two or more storey, Detached||5|0|2|0|1525|213569|1985|||||2|131392||2026-11-15|C|/en/houses~for-sale~val-des-monts/21656990",
+      "25407194|887777|l-ange-gardien-outaouais|93, Chemin des Carriers|H|Two or more storey, Detached||4|0|2|0|1366|52159|2024|94100||||2|64||2026-11-15|C|/en/houses~for-sale~l-ange-gardien-outaouais/25407194",
+      "17373479|549000|l-ange-gardien-outaouais|3871, Chemin River|H|Two or more storey, Detached||3|0|1|0|1400|1947055||99300||||2|256||2026-11-15|C|/en/houses~for-sale~l-ange-gardien-outaouais/17373479",
+      "10694941|749900|l-ange-gardien-outaouais|1031, Chemin Filion|H|Two or more storey, Detached||3|0|2|0|1065|181407|1977|||||2|64||2026-11-15|C|/en/hobby-farms~for-sale~l-ange-gardien-outaouais/10694941",
+      "21130308|235900|la-peche|490, Chemin du Lac-Sinclair|H|Two or more storey, Detached||4|0|1|0|1200|81364|1978|||||2|64||2026-11-15|C|/en/houses~for-sale~la-peche/21130308",
+      "17812274|648800|la-peche|10, Place Mark-Parker|H|Two or more storey, Detached||3|0|3|0|1874|8075|2023|135800||||2|0||2026-11-15|C|/en/houses~for-sale~la-peche/17812274",
+      "19380863|265000|pontiac|1712, Chemin du Lac-des-Loups|H|Two or more storey, Detached||3|0|2|0|2732|22596|1930|||||2|256||2026-11-15|C|/en/houses~for-sale~pontiac/19380863"
     ],
-    "asOf": "2026-11-14"
+    "asOf": "2026-11-15"
   },
   "geo": {
     "coords": {
@@ -4555,6 +4591,146 @@
       "20173316": [
         45.52036,
         -76.2334
+      ],
+      "15313547": [
+        45.46247,
+        -75.76096
+      ],
+      "12279680": [
+        45.45237,
+        -75.75821
+      ],
+      "22400058": [
+        45.45099,
+        -75.79177
+      ],
+      "16054663": [
+        45.46413,
+        -75.7651
+      ],
+      "20517107": [
+        45.44095,
+        -75.79668
+      ],
+      "28539011": [
+        45.39005,
+        -75.83831
+      ],
+      "11919170": [
+        45.41559,
+        -75.80458
+      ],
+      "26615083": [
+        45.41574,
+        -75.88099
+      ],
+      "16769995": [
+        45.42121,
+        -75.79043
+      ],
+      "15391720": [
+        45.43412,
+        -75.81018
+      ],
+      "10724156": [
+        45.49747,
+        -75.61446
+      ],
+      "13189645": [
+        45.50206,
+        -75.6204
+      ],
+      "13563769": [
+        45.47976,
+        -75.67424
+      ],
+      "19069154": [
+        45.50226,
+        -75.56144
+      ],
+      "13393738": [
+        45.4869,
+        -75.71366
+      ],
+      "26991451": [
+        45.489,
+        -75.65359
+      ],
+      "20606980": [
+        45.49627,
+        -75.74184
+      ],
+      "24518553": [
+        45.48659,
+        -75.64673
+      ],
+      "25868666": [
+        45.50471,
+        -75.58704
+      ],
+      "19773661": [
+        45.52259,
+        -75.48408
+      ],
+      "17280414": [
+        45.5441,
+        -75.43666
+      ],
+      "16449793": [
+        45.49862,
+        -75.77333
+      ],
+      "28994616": [
+        45.55905,
+        -75.83573
+      ],
+      "22501653": [
+        45.56307,
+        -75.71316
+      ],
+      "21577528": [
+        45.54523,
+        -75.77498
+      ],
+      "9669861": [
+        45.5695,
+        -75.83105
+      ],
+      "14769321": [
+        45.5596,
+        -75.70575
+      ],
+      "12375658": [
+        45.6201,
+        -75.63451
+      ],
+      "10683469": [
+        45.56279,
+        -75.67958
+      ],
+      "21656990": [
+        45.74507,
+        -75.77575
+      ],
+      "25407194": [
+        45.62544,
+        -75.36726
+      ],
+      "17373479": [
+        45.66512,
+        -75.46828
+      ],
+      "10694941": [
+        45.54544,
+        -75.50638
+      ],
+      "21130308": [
+        45.79751,
+        -76.15352
+      ],
+      "19380863": [
+        45.57092,
+        -76.24966
       ]
     }
   },
@@ -5797,6 +5973,60 @@
         ]
       ],
       "removed": []
+    },
+    {
+      "date": "2026-11-15",
+      "added": [
+        "15313547|679000|gatineau-hull|27, Rue Bernier|H|Two or more storey, Detached||4|0|2|0|1264|6175|1972|251200||||2|65792||2026-11-15|C|/en/houses~for-sale~gatineau-hull/15313547",
+        "12279680|617900|gatineau-hull|262, boulevard de la Cité-des-Jeunes|H|Two or more storey, Detached||3|0|3|0|1466|7860|1969|283600||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-hull/12279680",
+        "22400058|999900|gatineau-hull|18, Rue du Borée|H|Two or more storey, Detached||6|0|4|0|2530|6329|2008|254300||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-hull/22400058",
+        "16054663|689900|gatineau-hull|344, boulevard Riel|H|Two or more storey, Detached||5|0|3|0|1700|6000|1968|248000||||2|67904||2026-11-15|C|/en/houses~for-sale~gatineau-hull/16054663",
+        "20517107|559900|gatineau-aylmer|117, Rue du Zodiaque|H|Two or more storey, Detached||3|0|2|0|1446|3229|2007|159000||||2|65600||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/20517107",
+        "28539011|374900|gatineau-aylmer|185, Rue Elizabeth|H|Two or more storey, Detached||3|0|2|0|1232||1974|||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/28539011",
+        "11919170|499900|gatineau-aylmer|54, Rue des Hurons|H|Two or more storey, Detached||3|0|2|0|1320|5541|2004|231900||||2|65664||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/11919170",
+        "26615083|869900|gatineau-aylmer|313, Chemin Eardley|H|Two or more storey, Detached||4|0|3|0|2175|43209|1971|220200||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/26615083",
+        "16769995|875000|gatineau-aylmer|53, Rue Atholl-Doune|H|Two or more storey, Detached||5|0|3|0|2639|44471|1967|301300||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/16769995",
+        "15391720|590000|gatineau-aylmer|77, Rue de Dublin|H|Two or more storey, Detached||3|0|3|0|1462|4908|2016|227700||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-aylmer/15391720",
+        "10724156|740000|gatineau-gatineau|27, Rue Honoré|H|Two or more storey, Detached||5|0|2|0|1706|8909|1994|194500||||2|320||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/10724156",
+        "13189645|509800|gatineau-gatineau|197, Rue Marcelle-Ferron|H|Two or more storey, Detached||3|0|2|0|1460|4874|2016|223300||||2|65792||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13189645",
+        "13563769|774500|gatineau-gatineau|159, Rue de Melbourne|H|Two or more storey, Detached||4|0|4|0|2350|5712|2005|225700||||2|65664||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13563769",
+        "19069154|399900|gatineau-gatineau|255, Rue du Vieux-Port|H|Two or more storey, Detached||3|0|2|0|1348|5516|1997|135200||||2|256||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/19069154",
+        "13393738|349800|gatineau-gatineau|52, Rue de Drapeau|H|Two or more storey, Detached||3|0|2|0|627|3000|1972|119300||||2|0||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/13393738",
+        "26991451|419900|gatineau-gatineau|319, Rue Gauthier|H|Two or more storey, Detached||4|0|2|0|1431|4945|1950|192000||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/26991451",
+        "20606980|549900|gatineau-gatineau|143, Rue Le Loutre|H|Two or more storey, Detached||4|0|3|0|1488|5570|1990|154400||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/20606980",
+        "24518553|499900|gatineau-gatineau|262, Rue Saint-James|H|Two or more storey, Detached||3|0|2|0|1403|7921|1959|218800||||2|128||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/24518553",
+        "25868666|485000|gatineau-gatineau|26, Rue de la Bourgade|H|Two or more storey, Detached||4|0|2|0|1000|3904|2011|132400||||2|2048||2026-11-15|C|/en/houses~for-sale~gatineau-gatineau/25868666",
+        "19773661|462555|gatineau-masson-angers|123Z, Rue du Débusquage|H|Two or more storey, Detached||5|0|3|0|1502|2809||531822||||2|65536||2026-11-15|C|/en/houses~for-sale~gatineau-masson-angers/19773661",
+        "17280414|465231|gatineau-masson-angers|86, Rue Alfred-Bélisle|H|Two or more storey, Detached||3|0|3|0|1478|2745||534900||||2|64||2026-11-15|C|/en/houses~for-sale~gatineau-masson-angers/17280414",
+        "16449793|809000|chelsea|38, Chemin Deschênes|H|Two or more storey, Detached||5|0|4|0|3085|45662|1991|240500||||2|320||2026-11-15|C|/en/houses~for-sale~chelsea/16449793",
+        "28994616|899800|chelsea|5, Chemin Pawley|H|Two or more storey, Detached||4|0|4|0|3182|42468|1988|199000||||2|256||2026-11-15|C|/en/houses~for-sale~chelsea/28994616",
+        "22501653|599900|cantley|817, Montée Saint-Amour|H|Two or more storey, Detached||4|0|3|0||76359|1990|156500||||2|320||2026-11-15|C|/en/houses~for-sale~cantley/22501653",
+        "21577528|729900|cantley|36, Place du Neufbourg|H|Two or more storey, Detached||5|0|2|0|||1983|144900||||2|0||2026-11-15|C|/en/houses~for-sale~cantley/21577528",
+        "9669861|999900|cantley|17, Rue du Ruisseau|H|Two or more storey, Detached||3|0|3|0|1954|88899|2020|373700||||2|131328||2026-11-15|C|/en/houses~for-sale~cantley/9669861",
+        "14769321|684900|cantley|21, Rue du Renard|H|Two or more storey, Detached||3|0|2|0|1464|62864|2007|177600||||2|320||2026-11-15|C|/en/houses~for-sale~cantley/14769321",
+        "12375658|824888|val-des-monts|53, Rue de l'Allée|H|Two or more storey, Detached||4|0|3|0|1798|45705|2016|80100||||2|320||2026-11-15|C|/en/houses~for-sale~val-des-monts/12375658",
+        "10683469|709900|val-des-monts|57, Rue du Faubourg|H|Two or more storey, Detached||5|0|4|0|2200|40811|1998|85700||||2|65856||2026-11-15|C|/en/houses~for-sale~val-des-monts/10683469",
+        "21656990|649000|val-des-monts|53, Chemin de la Montagne|H|Two or more storey, Detached||5|0|2|0|1525|213569|1985|||||2|131392||2026-11-15|C|/en/houses~for-sale~val-des-monts/21656990",
+        "25407194|887777|l-ange-gardien-outaouais|93, Chemin des Carriers|H|Two or more storey, Detached||4|0|2|0|1366|52159|2024|94100||||2|64||2026-11-15|C|/en/houses~for-sale~l-ange-gardien-outaouais/25407194",
+        "17373479|549000|l-ange-gardien-outaouais|3871, Chemin River|H|Two or more storey, Detached||3|0|1|0|1400|1947055||99300||||2|256||2026-11-15|C|/en/houses~for-sale~l-ange-gardien-outaouais/17373479",
+        "10694941|749900|l-ange-gardien-outaouais|1031, Chemin Filion|H|Two or more storey, Detached||3|0|2|0|1065|181407|1977|||||2|64||2026-11-15|C|/en/hobby-farms~for-sale~l-ange-gardien-outaouais/10694941",
+        "21130308|235900|la-peche|490, Chemin du Lac-Sinclair|H|Two or more storey, Detached||4|0|1|0|1200|81364|1978|||||2|64||2026-11-15|C|/en/houses~for-sale~la-peche/21130308",
+        "17812274|648800|la-peche|10, Place Mark-Parker|H|Two or more storey, Detached||3|0|3|0|1874|8075|2023|135800||||2|0||2026-11-15|C|/en/houses~for-sale~la-peche/17812274",
+        "19380863|265000|pontiac|1712, Chemin du Lac-des-Loups|H|Two or more storey, Detached||3|0|2|0|2732|22596|1930|||||2|256||2026-11-15|C|/en/houses~for-sale~pontiac/19380863"
+      ],
+      "price": [
+        [
+          "9999828",
+          554000,
+          549900
+        ]
+      ],
+      "removed": [
+        "28818944",
+        "11661214",
+        "10149092",
+        "28095751"
+      ]
     }
   ],
   "marks": {},
@@ -5810,6 +6040,16 @@
       "newCnt": 26,
       "dropCnt": 2,
       "soldCnt": 0
+    },
+    {
+      "date": "2026-11-15",
+      "active": 910,
+      "median": 549900,
+      "mean": 583717,
+      "ppsf": 380,
+      "newCnt": 36,
+      "dropCnt": 1,
+      "soldCnt": 4
     }
   ]
 }
