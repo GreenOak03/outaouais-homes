@@ -137,6 +137,15 @@ def extract_gps_from_html(html):
     return None, None
 
 
+def extract_photo_from_soup(soup):
+    meta = soup.select_one('meta[property="og:image"], meta[name="twitter:image"]')
+    if meta and meta.get("content"):
+        url = meta["content"].strip()
+        if url.startswith("https://") and "logo" not in url.lower():
+            return url
+    return ""
+
+
 def detect_attachment_from_html(html, url=""):
     u = (url or "").lower()
     if any(k in u for k in ["semi-detached", "jumele", "jumelé", "duplex"]):
@@ -144,6 +153,16 @@ def detect_attachment_from_html(html, url=""):
     if any(k in u for k in ["townhouse", "row-house", "en-rangee", "condo"]):
         return "R"
     soup = BeautifulSoup(html, "html.parser")
+    for container in soup.select(".carac-container, .cac, .property-details__item"):
+        ctext = container.get_text(" ", strip=True)
+        if re.search(r"(Building style|Style de b[aâ]timent|Property style|Cat[eé]gorie)", ctext, re.I):
+            clow = ctext.lower()
+            if any(w in clow for w in ["semi-detached", "semi-détaché", "jumelé", "jumele"]):
+                return "S"
+            if any(w in clow for w in ["attached", "en rangée", "en rangee", "townhouse", "row house", "maison de ville"]):
+                return "R"
+            if any(w in clow for w in ["detached", "détaché", "detache", "isolé", "isole", "single-family"]):
+                return "DV"
     text = extract_listing_body_text(soup)
     m = re.search(
         r"(?:Building style|Style de b[aâ]timent|Property style|Cat[eé]gorie)\s*[:\-]?\s*([^\n\r.|]{3,45})",
@@ -186,6 +205,68 @@ def compute_bits(body_text, existing_bits=0):
     if any(w in t for w in ["plus gst/qst", "plus taxes", "taxes en sus", "+ gst/qst"]):
         bits |= 262144
     return bits
+
+
+def extract_structured_details(html, soup, body_text, url="", existing_bits=0):
+    att = detect_attachment_from_html(html, url)
+    lat, lng = extract_gps_from_html(html)
+
+    ym = re.search(r"(?:Year built|Ann[eé]e de construction)\s*[:\-]?\s*(1[89]\d\d|20[012]\d)", body_text, re.I)
+    yr_val = int(ym.group(1)) if ym and 1850 <= int(ym.group(1)) <= 2027 else None
+
+    lm = re.search(
+        r"(?:Lot area|Lot dimensions|Superficie du terrain|Terrain)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
+        body_text,
+        re.I,
+    )
+    lot_val = clean_int(lm.group(1)) if lm else None
+    if lot_val is not None and not (800 <= lot_val <= 5000000):
+        lot_val = None
+
+    am = re.search(
+        r"(?:Living space|Net area|Superficie habitable)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
+        body_text,
+        re.I,
+    )
+    raw_area = clean_int(am.group(1)) if am else None
+    area_val = None
+    if raw_area is not None:
+        if raw_area > 6000:
+            if not lot_val and raw_area <= 5000000:
+                lot_val = raw_area
+        elif 400 <= raw_area <= 5800:
+            area_val = raw_area
+
+    mm = re.search(r"(?:Municipal assessment|[EÉ]valuation municipale)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
+    assess_val = clean_int(mm.group(1)) if mm else None
+    if assess_val is not None and not (50000 <= assess_val <= 3000000):
+        assess_val = None
+
+    tm = re.search(r"(?:Municipal taxes|Taxes municipales)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
+    sm = re.search(r"(?:School taxes|Taxes scolaires)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
+    t_val = clean_int(tm.group(1)) if tm else 0
+    s_val = clean_int(sm.group(1)) if sm else 0
+    total_tax = (t_val or 0) + (s_val or 0)
+    tax_val = total_tax if t_val and 500 <= total_tax <= 25000 else None
+
+    bm = re.search(r"(?:Bathrooms|Salles de bain)\s*[:\-]?\s*(\d+)\s*\+\s*(\d+)", body_text, re.I)
+    baths_val = int(bm.group(1)) if bm else None
+    powder_val = int(bm.group(2)) if bm else None
+
+    return {
+        "att": att,
+        "lat": lat,
+        "lng": lng,
+        "yr": yr_val,
+        "area": area_val,
+        "lot": lot_val,
+        "assess": assess_val,
+        "tax": tax_val,
+        "baths": baths_val,
+        "powder": powder_val,
+        "bits": compute_bits(body_text, existing_bits),
+        "photo": extract_photo_from_soup(soup),
+    }
 
 
 def row_id(r):
@@ -231,7 +312,7 @@ def recover_from_git_history(current_rows):
                     elif isinstance(by_id[hid], list) and isinstance(hr, str) and "|" in hr:
                         cur = by_id[hid]
                         p = hr.split("|")
-                        while len(p) < 25:
+                        while len(p) < 26:
                             p.append("")
                         if len(cur) > 3 and cur[3]:
                             p[1] = str(cur[3])
@@ -247,6 +328,8 @@ def recover_from_git_history(current_rows):
                             p[15] = str(cur[12])
                         if not p[24] and len(cur) > 20 and cur[20] in ("S", "R", "DV"):
                             p[24] = cur[20]
+                        if not p[25] and len(cur) > 21 and cur[21]:
+                            p[25] = str(cur[21])
                         by_id[hid] = "|".join(p)
             except Exception:
                 continue
@@ -348,9 +431,11 @@ def verify_existing_listing(row):
             out_r = "|".join(str(x) for x in p) if is_pipe else p
             return (rid, "active", out_r, old_price, old_price, addr)
 
-        att = detect_attachment_from_html(html, url)
         soup = BeautifulSoup(html, "html.parser")
         body_text = extract_listing_body_text(soup)
+        existing_bits = clean_int(p[19] if is_pipe and len(p) > 19 else (p[14] if not is_pipe and len(p) > 14 else 0)) or 0
+        det = extract_structured_details(html, soup, body_text, url, existing_bits=existing_bits)
+        att = det["att"]
 
         # Repair bad $-price address using live HTML
         if is_price_or_bad_addr(addr):
@@ -362,21 +447,8 @@ def verify_existing_listing(row):
                 else:
                     p[18] = clean_a
 
-        lm = re.search(
-            r"(?:Lot area|Lot dimensions|Superficie du terrain|Terrain)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
-            body_text,
-            re.I,
-        )
-        lot_val = clean_int(lm.group(1)) if lm else None
-        am = re.search(
-            r"(?:Living space|Net area|Superficie habitable)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
-            body_text,
-            re.I,
-        )
-        area_val = clean_int(am.group(1)) if am else None
-
         if is_pipe:
-            while len(p) < 25:
+            while len(p) < 26:
                 p.append("")
             if att == "S" and "semi" not in p[5].lower():
                 p[5] = (p[5] + ", Semi-detached").strip(", ")
@@ -386,22 +458,41 @@ def verify_existing_listing(row):
                 p[5] = (p[5] + ", Detached").strip(", ")
             if att:
                 p[24] = att
-            if lot_val and 800 <= lot_val <= 5000000 and not clean_int(p[12]):
-                p[12] = str(lot_val)
-            if area_val and 400 <= area_val <= 5800 and not clean_int(p[11]):
-                p[11] = str(area_val)
+            if det["area"] and not clean_int(p[11]):
+                p[11] = str(det["area"])
+            if det["lot"] and not clean_int(p[12]):
+                p[12] = str(det["lot"])
+            if det["yr"] and not clean_int(p[13]):
+                p[13] = str(det["yr"])
+            if det["assess"] and not clean_int(p[14]):
+                p[14] = str(det["assess"])
+            if det["tax"] and not clean_int(p[15]):
+                p[15] = str(det["tax"])
+            if det["bits"]:
+                p[19] = str(det["bits"])
+            if det["photo"] and not p[25]:
+                p[25] = det["photo"]
         else:
-            while len(p) < 21:
+            while len(p) < 22:
                 p.append(None)
             if att:
                 p[20] = att
-            if lot_val and 800 <= lot_val <= 5000000 and not p[9]:
-                p[9] = lot_val
-            if area_val and 400 <= area_val <= 5800 and not p[8]:
-                p[8] = area_val
-            lat, lng = extract_gps_from_html(html)
-            if lat and lng and (not p[16] or not p[17]):
-                p[16], p[17] = lat, lng
+            if det["area"] and not p[8]:
+                p[8] = det["area"]
+            if det["lot"] and not p[9]:
+                p[9] = det["lot"]
+            if det["yr"] and not p[10]:
+                p[10] = det["yr"]
+            if det["assess"] and not p[11]:
+                p[11] = det["assess"]
+            if det["tax"] and not p[12]:
+                p[12] = det["tax"]
+            if det["bits"]:
+                p[14] = det["bits"]
+            if det["lat"] and det["lng"] and (not p[16] or not p[17]):
+                p[16], p[17] = det["lat"], det["lng"]
+            if det["photo"] and not p[21]:
+                p[21] = det["photo"]
 
         pm = re.search(r'itemprop="price"\s+content="(\d+)"', html) or re.search(
             r'"price"\s*:\s*"?(\d{5,7})"?', html
@@ -423,6 +514,8 @@ def verify_existing_listing(row):
 
 
 def enrich_new_listing(row, fallback_lat, fallback_lng):
+    while len(row) < 22:
+        row.append(None)
     url = row[19]
     if not url:
         return row
@@ -437,48 +530,26 @@ def enrich_new_listing(row, fallback_lat, fallback_lng):
         # Ensure clean street address (never price)
         row[18] = extract_clean_address_from_soup(soup, url, row[18])
 
-        lat, lng = extract_gps_from_html(html)
-        row[16] = lat or fallback_lat
-        row[17] = lng or fallback_lng
-        att = detect_attachment_from_html(html, url)
-        if att:
-            row[20] = att
-        ym = re.search(r"(?:Year built|Année de construction)\s*[:\-]?\s*(19\d\d|20[012]\d)", body_text, re.I)
-        if ym:
-            row[10] = int(ym.group(1))
-        am = re.search(
-            r"(?:Living space|Net area|Superficie habitable)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
-            body_text,
-            re.I,
-        )
-        if am:
-            val = clean_int(am.group(1))
-            if val and 400 <= val <= 5800:
-                row[8] = val
-        lm = re.search(
-            r"(?:Lot area|Lot dimensions|Superficie du terrain|Terrain)\s*[:\-]?\s*([\d,\s]+)\s*(?:sqft|ft²|pi²|pc)",
-            body_text,
-            re.I,
-        )
-        if lm:
-            val = clean_int(lm.group(1))
-            if val and 800 <= val <= 5000000:
-                row[9] = val
-        mm = re.search(r"(?:Municipal assessment|Évaluation municipale)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
-        if mm:
-            val = clean_int(mm.group(1))
-            if val and 50000 <= val <= 3000000:
-                row[11] = val
-        tm = re.search(r"(?:Municipal taxes|Taxes municipales)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
-        sm = re.search(r"(?:School taxes|Taxes scolaires)\s*[:\-]?\s*\$?\s*([\d,\s]+)", body_text, re.I)
-        t_val = clean_int(tm.group(1)) if tm else 0
-        s_val = clean_int(sm.group(1)) if sm else 0
-        if t_val and 500 <= (t_val + (s_val or 0)) <= 25000:
-            row[12] = t_val + (s_val or 0)
-        bm = re.search(r"(?:Bathrooms|Salles de bain)\s*[:\-]?\s*(\d+)\s*\+\s*(\d+)", body_text, re.I)
-        if bm:
-            row[6], row[7] = int(bm.group(1)), int(bm.group(2))
-        row[14] = compute_bits(body_text, row[14] or 0)
+        det = extract_structured_details(html, soup, body_text, url, existing_bits=row[14] or 0)
+        row[16] = det["lat"] or fallback_lat
+        row[17] = det["lng"] or fallback_lng
+        if det["att"]:
+            row[20] = det["att"]
+        if det["yr"]:
+            row[10] = det["yr"]
+        if det["area"]:
+            row[8] = det["area"]
+        if det["lot"]:
+            row[9] = det["lot"]
+        if det["assess"]:
+            row[11] = det["assess"]
+        if det["tax"]:
+            row[12] = det["tax"]
+        if det["baths"] is not None:
+            row[6], row[7] = det["baths"], det["powder"]
+        row[14] = det["bits"]
+        if det["photo"]:
+            row[21] = det["photo"]
     except Exception as e:
         print(f"  [WARN] Could not enrich {row[0]}: {e}")
     return row
@@ -591,6 +662,13 @@ def row_price(r):
     return r[3] if len(r) > 3 else 0
 
 
+def row_area(r):
+    if isinstance(r, str):
+        p = r.split("|")
+        return clean_int(p[11]) if len(p) > 11 else None
+    return clean_int(r[8]) if len(r) > 8 else None
+
+
 def main():
     t0 = time.time()
     print("=== Outaouais Home Finder: Daily Refresh Started ===")
@@ -675,6 +753,11 @@ def main():
         updates.insert(0, today_update)
 
     prices = [row_price(r) for r in all_active_rows if row_price(r) and 80000 <= row_price(r) <= 2000000]
+    ppsfs = [
+        round(row_price(r) / row_area(r))
+        for r in all_active_rows
+        if row_price(r) and 80000 <= row_price(r) <= 2000000 and row_area(r) and 450 <= row_area(r) <= 5800
+    ]
     hist_entry = {
         "date": today_str,
         "count": len(all_active_rows),
@@ -684,6 +767,8 @@ def main():
         "dropCount": len(price_changes),
         "soldCount": len(newly_removed),
     }
+    if ppsfs:
+        hist_entry["medianPpsf"] = int(statistics.median(ppsfs))
     market_history = [h for h in market_history if h.get("date") != today_str] + [hist_entry]
     market_history.sort(key=lambda h: h.get("date", ""))
 
