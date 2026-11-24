@@ -196,7 +196,7 @@ def row_id(r):
 
 def recover_from_git_history(current_rows):
     """
-    Step 0: Inspects the last 12 git commits of snapshot.json.
+    Step 0: Inspects the last 45 git commits of snapshot.json.
     If previous commits had listings that were dropped in a mass rate-limit event,
     restores them automatically!
     """
@@ -204,7 +204,7 @@ def recover_from_git_history(current_rows):
     initial_count = len(by_id)
     try:
         out = subprocess.check_output(
-            ["git", "log", "-n", "12", "--pretty=format:%H", "--", SNAPSHOT_PATH],
+            ["git", "log", "-n", "45", "--pretty=format:%H", "--", SNAPSHOT_PATH],
             stderr=subprocess.DEVNULL,
             text=True,
         ).strip()
@@ -224,8 +224,30 @@ def recover_from_git_history(current_rows):
                 )
                 for hr in h_rows:
                     hid = row_id(hr)
-                    if hid and hid not in HARD_REMOVED and hid not in by_id:
+                    if not hid or hid in HARD_REMOVED:
+                        continue
+                    if hid not in by_id:
                         by_id[hid] = hr
+                    elif isinstance(by_id[hid], list) and isinstance(hr, str) and "|" in hr:
+                        cur = by_id[hid]
+                        p = hr.split("|")
+                        while len(p) < 25:
+                            p.append("")
+                        if len(cur) > 3 and cur[3]:
+                            p[1] = str(cur[3])
+                        if not p[11] and len(cur) > 8 and cur[8]:
+                            p[11] = str(cur[8])
+                        if not p[12] and len(cur) > 9 and cur[9]:
+                            p[12] = str(cur[9])
+                        if not p[13] and len(cur) > 10 and cur[10]:
+                            p[13] = str(cur[10])
+                        if not p[14] and len(cur) > 11 and cur[11]:
+                            p[14] = str(cur[11])
+                        if not p[15] and len(cur) > 12 and cur[12]:
+                            p[15] = str(cur[12])
+                        if not p[24] and len(cur) > 20 and cur[20] in ("S", "R", "DV"):
+                            p[24] = cur[20]
+                        by_id[hid] = "|".join(p)
             except Exception:
                 continue
     except Exception as e:
